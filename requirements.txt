@@ -1,1 +1,1 @@
-Telegrask>=0.3.4
+Telegrask>=0.3.6
