@@ -5,7 +5,7 @@ from . import bot
 from .config import FEDERATION
 
 
-@bot.command("mute", help="mute chat user")
+@bot.command("mute", help="zmutuj użytkownika")
 def mute(update: Update, context: CallbackContext):
     mod = Moderation(update, context)
     user = update.message["reply_to_message"].from_user
@@ -13,15 +13,15 @@ def mute(update: Update, context: CallbackContext):
         if mod.is_user_admin(update.message.from_user.id):
             mod.mute(user.id)
             update.message.reply_text(
-                f"ℹ User {UserURL(user)} has been muted.", parse_mode="markdown"
+                f"ℹ Użytkownik {UserURL(user)} został zmutowany.", parse_mode="markdown"
             )
         else:
-            update.message.reply_text("❌ Permission error.")
+            update.message.reply_text("❌ Błąd uprawnień.")
     except PermissionError:
-        update.message.reply_text("❌ Permission error.")
+        update.message.reply_text("❌ Błąd uprawnień.")
 
 
-@bot.command("unmute", help="unmute chat user")
+@bot.command("unmute", help="odmutuj użytkownika")
 def mute(update: Update, context: CallbackContext):
     mod = Moderation(update, context)
     user = update.message["reply_to_message"].from_user
@@ -29,15 +29,16 @@ def mute(update: Update, context: CallbackContext):
         if mod.is_user_admin(update.message.from_user.id):
             mod.unmute(user.id)
             update.message.reply_text(
-                f"ℹ User {UserURL(user)} has been unmuted.", parse_mode="markdown"
+                f"ℹ Użytkownik {UserURL(user)} został odmutowany.",
+                parse_mode="markdown",
             )
         else:
-            update.message.reply_text("❌ Permission error.")
+            update.message.reply_text("❌ Błąd uprawnień.")
     except PermissionError:
-        update.message.reply_text("❌ Permission error.")
+        update.message.reply_text("❌ Błąd uprawnień.")
 
 
-@bot.command(["ban", "gban", "fban"], help="ban user in federation")
+@bot.command(["ban", "gban", "fban"], help="zbanuj użytkownika w federacji")
 def ban(update: Update, context: CallbackContext):
     mod = Moderation(update, context)
     user = update.message["reply_to_message"].from_user
@@ -49,16 +50,16 @@ def ban(update: Update, context: CallbackContext):
                     mod.ban(user.id)
                     context.bot.send_message(
                         chat_id,
-                        f"ℹ User {UserURL(user)} has been banned in federation.",
+                        f"ℹ Użytkownik {UserURL(user)} został zbanowany.",
                         parse_mode="markdown",
                     )
         else:
-            update.message.reply_text("❌ Permission error.")
+            update.message.reply_text("❌ Błąd uprawnień.")
     except PermissionError:
-        update.message.reply_text("❌ Permission error.")
+        update.message.reply_text("❌ Błąd uprawnień.")
 
 
-@bot.command("unban", help="unban user in federation")
+@bot.command("unban", help="odbanuj użytkownika w federacji")
 def unban(update: Update, context: CallbackContext):
     mod = Moderation(update, context)
     user = update.message["reply_to_message"].from_user
@@ -70,10 +71,10 @@ def unban(update: Update, context: CallbackContext):
                     mod.unban(user.id)
                     context.bot.send_message(
                         chat_id,
-                        f"ℹ User {UserURL(user)} has been unbanned in federation.",
+                        f"ℹ Użytkownik {UserURL(user)} został odbanowany.",
                         parse_mode="markdown",
                     )
         else:
-            update.message.reply_text("❌ Permission error.")
+            update.message.reply_text("❌ Błąd uprawnień.")
     except PermissionError:
-        update.message.reply_text("❌ Permission error.")
+        update.message.reply_text("❌ Błąd uprawnień.")
