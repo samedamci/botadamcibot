@@ -16,7 +16,7 @@ def mute(update: Update, context: CallbackContext):
                 f"ℹ Użytkownik {UserURL(user)} został zmutowany.", parse_mode="markdown"
             )
         else:
-            update.message.reply_text("❌ Błąd uprawnień.")
+            update.message.reply_text("❌ Nie masz wystarczających uprawnień.")
     except PermissionError:
         update.message.reply_text("❌ Błąd uprawnień.")
 
@@ -33,7 +33,7 @@ def mute(update: Update, context: CallbackContext):
                 parse_mode="markdown",
             )
         else:
-            update.message.reply_text("❌ Błąd uprawnień.")
+            update.message.reply_text("❌ Nie masz wystarczających uprawnień.")
     except PermissionError:
         update.message.reply_text("❌ Błąd uprawnień.")
 
@@ -54,7 +54,7 @@ def ban(update: Update, context: CallbackContext):
                         parse_mode="markdown",
                     )
         else:
-            update.message.reply_text("❌ Błąd uprawnień.")
+            update.message.reply_text("❌ Nie masz wystarczających uprawnień.")
     except PermissionError:
         update.message.reply_text("❌ Błąd uprawnień.")
 
@@ -75,6 +75,6 @@ def unban(update: Update, context: CallbackContext):
                         parse_mode="markdown",
                     )
         else:
-            update.message.reply_text("❌ Błąd uprawnień.")
+            update.message.reply_text("❌ Nie masz wystarczających uprawnień.")
     except PermissionError:
         update.message.reply_text("❌ Błąd uprawnień.")
