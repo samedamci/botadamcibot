@@ -1,6 +1,6 @@
 from telegram import Update
 from telegram.ext import CallbackContext
-from telegrask.ext import Moderation, UserURL
+from telegrask.ext import Moderation
 from . import bot
 from .config import FEDERATION
 from .functions import do_action

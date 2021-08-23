@@ -1,5 +1,3 @@
-from telegram import Update
-from telegram.ext import CallbackContext
 from telegrask.ext import Moderation, UserURL
 from typing import Callable
 from .config import FEDERATION
