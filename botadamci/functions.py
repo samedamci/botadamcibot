@@ -26,7 +26,7 @@ def do_action(mod: Moderation, method: Callable, in_federation: bool = False):
                     context.bot.send_message(mod.chat_id, msg, parse_mode="MarkdownV2")
             else:
                 method(user.id)
-                context.bot.send_message(mod.chat.id, msg, parse_mode="MarkdownV2")
+                context.bot.send_message(mod.chat_id, msg, parse_mode="MarkdownV2")
         else:
             update.message.reply_text("❌ Nie masz wystarczających uprawnień.")
     except PermissionError:
